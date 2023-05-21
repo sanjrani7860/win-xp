@@ -7,7 +7,7 @@ wget -O XP.iso 'https://www.dropbox.com/s/eyz5apkkwqwtrvx/Windows%20XP%20Profess
 
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 sudo qemu-system-x86_64 \
-  -m 1G \
+  -m 0.5G \
   -cpu EPYC \
   -boot order=d \
   -drive file=XP.img \
@@ -17,7 +17,7 @@ sudo qemu-system-x86_64 \
   -device usb-tablet \
   -vnc :0 \
   -cpu coreduo \
-  -smp sockets=1,cores=1,threads=1 \
+  -smp sockets=0.5,cores=0.5,threads=0.5 \
   -vga std \
   -device rtl8139,netdev=n0 -netdev user,id=n0 \
   -accel tcg,thread=multi \
