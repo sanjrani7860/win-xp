@@ -17,7 +17,7 @@ sudo qemu-system-x86_64 \
   -device usb-tablet \
   -vnc :0 \
   -cpu coreduo \
-  -smp sockets=0.5,cores=0.5,threads=0.5 \
+  -smp sockets=1,cores=1,threads=1 \
   -vga std \
   -device rtl8139,netdev=n0 -netdev user,id=n0 \
   -accel tcg,thread=multi \
